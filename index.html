@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Tenant Vercel Example</title>
+</head>
+<body>
+    <h1>Welcome to Multi-Tenant Vercel App!</h1>
+    <h2 id="message"></h2>
+
+    <script>
+        // Fetching environment variable from Vercel
+        fetch('/api/getMessage')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').textContent = data.message;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
